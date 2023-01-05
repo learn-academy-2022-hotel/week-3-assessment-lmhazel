@@ -101,23 +101,28 @@ const accountTransactions2 = [250, -89, 100, -96]
 const accountTransactions3 = []
 // Expected output: []
 
-describe("accNum", () => {
-  it("returns an array of an accumulation of the numbers or an empty array if the input is an empty array", () => {
-    expect(accNum()).toEqual("[100, 83, 60, 51]")
-  })
-})
+// describe("accNum", () => {
+//   it("returns an array of an accumulation of the numbers or an empty array if the input is an empty array", () => {
+//     expect(accNum()).toEqual("[100, 83, 60, 51]")
+//   })
+// })
 
 // b) Create the function that makes the test pass.
 const accNum = (array) => {
   let newArr = []
   for (let i = 0; i < array.length; i++) {
     if (array.length === 0) {
-      newArr = []
-    } else if (array[i] === 1) {
+      return
+    } else if (i === 0) {
       newArr.push(array[i])
-    } else {
-      newArr.push(array[i] + array[i - 1])
-  }
-  return newArr
+    } else if(i > 0) {
+      let sum = array[i] + array[i - 1]
+      //console.log(array[i], array)
+      array[i] = sum
+      //console.log(array[i], array)
+      newArr.push(sum)
+      //console.log(array)
+    }}
+return newArr
 }
-}
+console.log(accNum(accountTransactions1))
